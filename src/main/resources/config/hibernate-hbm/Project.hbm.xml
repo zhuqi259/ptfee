@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.zhuqi.oa.model.Project" table="t_project">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="fid" unique="true" />
+		<property name="myYear" />
+		<property name="proname" />
+		<property name="developer" />
+		<property name="area" />
+		<property name="location" />
+		<property name="fee" />
+		<property name="sfee" />
+		<property name="createTime" />
+		<property name="status" />
+		<property name="processInstanceId" />
+		<many-to-one name="workflow" />
+		<many-to-one name="creator" />
+		<set name="files" inverse="true" lazy="extra" cascade="delete">
+			<key column="project" />
+			<one-to-many class="cn.zhuqi.oa.model.Pfile" />
+		</set>
+
+	</class>
+</hibernate-mapping>

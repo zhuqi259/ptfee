@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.zhuqi.oa.model.Pfile" table="t_pfile">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<many-to-one name="zfile" />
+		<property name="path" />
+		<property name="contentType" />
+		<many-to-one name="project" />
+	</class>
+</hibernate-mapping>

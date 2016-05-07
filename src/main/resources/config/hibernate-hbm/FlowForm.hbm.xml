@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_flowform" name="cn.zhuqi.oa.model.FlowForm">
+    <id name="id">
+      <generator class="native"/>
+    </id>
+    <many-to-one name="workflow"/>
+    <property name="template"/>
+    <set inverse="true" name="fields" order-by="id">
+      <key column="flowFormId"/>
+      <one-to-many class="cn.zhuqi.oa.model.FormField"/>
+    </set>
+  </class>
+</hibernate-mapping>

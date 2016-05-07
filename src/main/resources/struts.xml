@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+        "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <include file="common.xml"/>
+    <package name="zhuqi" namespace="/system" extends="common">
+        <action name="*" class="{1}Action">
+            <result name="index">/org/index.jsp</result>
+            <result name="add_input">/org/{1}_add_input.jsp</result>
+            <result name="update_input">/org/{1}_update_input.jsp</result>
+            <result name="company_input">/org/company_input.jsp</result>
+            <result name="person_list">/org/person_list.jsp</result>
+            <result name="add_success">/org/add_success.jsp</result>
+            <result name="update_success">/org/update_success.jsp</result>
+            <result name="del_success">/org/del_success.jsp</result>
+        </action>
+
+        <action name="project" class="projectAction">
+            <result name="index">/project/all_project.jsp</result>
+            <result name="view_activity">/project/activity_list.jsp</result>
+            <result name="GCSL">/project/model/GCSL.jsp</result>
+            <result name="ShenHe">/project/model/ShenHe.jsp</result>
+            <result name="FPID">/project/model/FPID.jsp</result>
+
+            <result name="other">/project/model/other.jsp</result>
+
+            <result name="excel_success">/project/excel_success.jsp</result>
+            <param name="targetFileDir">/attachment/excel/</param>
+        </action>
+
+        <action name="activity" class="zactivityAction">
+            <result name="index">/activity/index.jsp</result>
+            <result name="update_input">/activity/update_input.jsp</result>
+            <result name="update_success">/activity/update_success.jsp</result>
+        </action>
+
+        <action name="activityPayment" class="zactivityAction">
+            <result name="index">/activity/activityPayment_index.jsp</result>
+            <result name="update_input">/activity/update_Payment_input.jsp</result>
+            <result name="update_success">/activity/update_success.jsp</result>
+        </action>
+
+        <action name="activityZfund" class="zactivityAction">
+            <result name="index">/activity/activityZfund_index.jsp</result>
+            <result name="update_input">/activity/update_Zfund_input.jsp</result>
+            <result name="update_success">/activity/update_success.jsp</result>
+        </action>
+
+        <action name="database" class="databaseAction">
+            <result name="index">/database/index.jsp</result>
+            <result name="list">/database/list.jsp</result>
+            <result name="update_success">/database/update_success.jsp</result>
+            <result name="clean_success">/database/clean_success.jsp</result>
+            <result name="list2">/database/list2.jsp</result>
+            <result name="add_input">/database/add_input.jsp</result>
+            <param name="targetFileDir">/attachment/database/</param>
+            <param name="home">/attachment/</param>
+            <param name="excel">/attachment/excel/</param>
+        </action>
+
+        <action name="zfile" class="zfileAction">
+            <result name="add_input">/zfile/add_input.jsp</result>
+            <result name="add_success">/zfile/add_success.jsp</result>
+            <result name="update_input">/zfile/update_input.jsp</result>
+            <result name="update_success">/zfile/update_success.jsp</result>
+        </action>
+
+        <action name="zpayment" class="zpaymentAction">
+            <result name="add_input">/zpayment/add_input.jsp</result>
+            <result name="add_success">/zpayment/add_success.jsp</result>
+            <result name="update_input">/zpayment/update_input.jsp</result>
+            <result name="update_success">/zpayment/update_success.jsp</result>
+        </action>
+
+        <action name="zfund" class="zfundAction">
+            <result name="add_input">/zfund/add_input.jsp</result>
+            <result name="add_success">/zfund/add_success.jsp</result>
+            <result name="update_input">/zfund/update_input.jsp</result>
+            <result name="update_success">/zfund/update_success.jsp</result>
+        </action>
+
+        <action name="zpercentum" class="zpercentumAction">
+            <result name="index">/zpercentum/index.jsp</result>
+            <result name="update_success">/zpercentum/update_success.jsp</result>
+        </action>
+
+        <action name="sequence" class="zsequenceAction">
+            <result name="index">/zsequence/index.jsp</result>
+        </action>
+
+        <action name="sequenceSort" class="zsequenceAction">
+            <result name="index">/zsequence/seq_index.jsp</result>
+            <result name="sort_success">/zsequence/sort_success.jsp</result>
+        </action>
+
+        <action name="fieldMap" class="fieldMapAction">
+            <result name="update_input">/zsequence/update_input.jsp</result>
+            <result name="update_success">/zsequence/update_success.jsp</result>
+            <result name="add_input">/zsequence/add_input.jsp</result>
+            <result name="add_success">/zsequence/add_success.jsp</result>
+        </action>
+
+        <action name="rule" class="ruleAction">
+            <result name="index">/rule/index.jsp</result>
+            <result name="add_input">/rule/add_input.jsp</result>
+        </action>
+
+        <action name="idtable" class="idtableAction">
+            <result name="index">/idtable/index.jsp</result>
+            <result name="update_success">/idtable/update_success.jsp</result>
+        </action>
+
+        <action name="workflow" class="workflowAction">
+            <result name="index">/workflow/index.jsp</result>
+            <result name="add_input">/workflow/add_input.jsp</result>
+            <result name="add_success">/workflow/add_success.jsp</result>
+            <result name="view">/workflow/view.jsp</result>
+        </action>
+
+        <action name="user" class="userAction">
+            <result name="index">/user/index.jsp</result>
+            <result name="add_input">/user/add_input.jsp</result>
+            <result name="update_input">/user/update_input.jsp</result>
+            <result name="update_pwd_input">/user/update_pwd_input.jsp</result>
+            <result name="add_success">/user/add_success.jsp</result>
+            <result name="update_success">/user/update_success.jsp</result>
+        </action>
+        <action name="userA" class="userAAction">
+            <result name="update_success">/user/update_success1.jsp</result>
+        </action>
+        <action name="role" class="roleAction">
+            <result name="index">/role/index.jsp</result>
+            <result name="add_input">/role/add_input.jsp</result>
+            <result name="update_input">/role/update_input.jsp</result>
+            <result name="add_success">/role/add_success.jsp</result>
+            <result name="update_success">/role/update_success.jsp</result>
+        </action>
+        <action name="menu" class="menuAction">
+            <result name="index">/menu/index.jsp</result>
+            <result name="add_input">/menu/add_input.jsp</result>
+            <result name="update_input">/menu/update_input.jsp</result>
+            <result name="add_success">/menu/add_success.jsp</result>
+            <result name="update_success">/menu/update_success.jsp</result>
+            <result name="del_success">/menu/del_success.jsp</result>
+        </action>
+        <action name="resource" class="resourceAction">
+            <result name="index">/resource/index.jsp</result>
+            <result name="add_input">/resource/add_input.jsp</result>
+            <result name="update_input">/resource/update_input.jsp</result>
+            <result name="oper_input">/resource/oper_input.jsp</result>
+            <result name="add_success">/resource/add_success.jsp</result>
+            <result name="update_success">/resource/update_success.jsp</result>
+            <result name="del_success">/resource/del_success.jsp</result>
+        </action>
+        <action name="acl" class="aclAction">
+            <result name="role_auth_index">/acl/role_auth_index.jsp</result>
+            <result name="user_auth_index">/acl/user_auth_index.jsp</result>
+            <result name="party_auth_index">/acl/party_auth_index.jsp</result>
+            <result name="all_menu_resource">/acl/all_menu_resource.jsp</result>
+            <result name="all_action_resource">/acl/all_action_resource.jsp</result>
+        </action>
+
+        <action name="login" class="loginAction">
+            <interceptor-ref name="oa-basic-stack"/>
+            <result name="back_index" type="redirect">/main.jsp
+            </result>
+        </action>
+        <action name="index" class="indexAction">
+        </action>
+    </package>
+
+    <package name="personal" namespace="/person" extends="common">
+        <action name="project" class="projectAction">
+            <result name="index">/project/index.jsp</result>
+            <result name="add_input">/project/add_input.jsp</result>
+            <result name="add_success">/project/add_success.jsp</result>
+            <result name="approve_input">/project/approve_input.jsp</result>
+            <result name="approve_input2">/project/approve_input2.jsp</result>
+            <result name="generate_id">/project/generate_id.jsp</result>
+            <result name="update_id_input">/project/update_id_input.jsp</result>
+            <result name="other_input">/project/other_input.jsp</result>
+            <result name="update_other_input">/project/update_other_input.jsp</result>
+
+            <result name="update_input">/project/update_input.jsp</result>
+            <result name="update_success">/project/update_success.jsp</result>
+            <result name="del_success">/project/del_success.jsp</result>
+            <result name="approve_success">/project/approve_success.jsp</result>
+            <result name="view">/project/view.jsp</result>
+            <result name="viewPic">/project/pic.jsp</result>
+            <result name="history">/project/approveHistory.jsp</result>
+            <param name="targetFileDir">/attachment/</param>
+        </action>
+
+        <action name="approved" class="projectAction">
+            <result name="index">/project/approved.jsp</result>
+        </action>
+
+        <action name="approving" class="projectAction">
+            <result name="index">/project/approving.jsp</result>
+        </action>
+
+        <action name="projectAUpdate" class="projectAUpdateAction">
+            <result name="update_success">/project/update_success1.jsp</result>
+            <param name="targetFileDir">/attachment/</param>
+        </action>
+        <action name="projectBUpdate" class="projectBUpdateAction">
+            <result name="update_success">/project/update_success1.jsp</result>
+            <param name="targetFileDir">/attachment/</param>
+        </action>
+
+        <action name="message" class="messageAction">
+            <result name="index">/message/index.jsp</result>
+            <result name="add_input">/message/add_input.jsp</result>
+            <result name="reply_input">/message/reply_input.jsp</result>
+            <result name="add_success">/message/add_success.jsp</result>
+            <result name="view">/message/view.jsp</result>
+        </action>
+
+        <action name="sendmessage" class="messageAction">
+            <result name="index">/message/send_index.jsp</result>
+        </action>
+
+        <action name="receivemessage" class="messageAction">
+            <result name="index">/message/receive_index.jsp</result>
+        </action>
+
+        <action name="deletedmessage" class="messageAction">
+            <result name="index">/message/deleted_index.jsp</result>
+        </action>
+    </package>
+
+
+    <package name="files" extends="common">
+        <action name="fileUpload" class="fileUploadAction">
+            <interceptor-ref name="oa-basic-stack"/>
+            <result name="success" type="json"/>
+            <result name="input">/login.jsp</result>
+            <param name="targetFileDir">/attachment</param>
+        </action>
+
+        <action name="filesUpload" class="filesUploadAction">
+            <interceptor-ref name="oa-basic-stack"/>
+            <result name="success">/First.jsp</result>
+            <result name="input">/login.jsp</result>
+            <param name="targetFileDir">/multifiles</param>
+        </action>
+
+        <action name="fileDownFull" class="fileDownloadFullAction">
+            <interceptor-ref name="oa-basic-stack"/>
+            <result name="success" type="stream">
+                <!-- 下载文件类型定义 -->
+                <param name="contentType">${contentType}</param>
+                <!-- 下载文件输出流定义 -->
+                <param name="inputName">inputStream</param>
+                <!-- 下载文件处理方法 -->
+                <param name="contentDisposition">attachment;filename=${fileName}
+                </param>
+                <!-- 下载文件的缓冲大小 -->
+                <param name="bufferSize">4096</param>
+            </result>
+        </action>
+
+        <action name="fileLook" class="fileLookAction">
+            <interceptor-ref name="oa-basic-stack"/>
+            <result name="success" type="stream">
+                <!-- 下载文件类型定义 -->
+                <param name="contentType">${contentType}</param>
+                <!-- 下载文件输出流定义 -->
+                <param name="inputName">inputStream</param>
+                <!-- 下载文件处理方法 -->
+                <param name="contentDisposition">filename=${fileName}
+                </param>
+                <!-- 下载文件的缓冲大小 -->
+                <param name="bufferSize">4096</param>
+            </result>
+        </action>
+    </package>
+
+</struts>    

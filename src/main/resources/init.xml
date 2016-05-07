@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inits package="cn.zhuqi.oa.model">
+	<entity class="Database" name="项目储备库" call="databaseService.addDatabase" />
+	<entity class="Database" name="标准作业成本库" call="databaseService.addDatabase" />
+	<entity class="Database" name="物资价格库" call="databaseService.addDatabase" />
+	<entity class="Database" name="同类项目对比库" call="databaseService.addDatabase" />
+	<entity class="Database" name="合同管理库" call="databaseService.addDatabase" />
+	<entity class="Database" name="财资管理库" call="databaseService.addDatabase" />
+	<entity class="Database" name="风险防控库" call="databaseService.addDatabase" />
+
+	<entity class="Company" name="吉林省电力有限公司" description="吉林省电力有限公司"
+		call="partyService.addParty">
+		<entity class="Department" name="市场及大客户部">
+			<entity class="Position" name="客户代表">
+				<entity class="Person" name="赵一" sex="男" />
+			</entity>
+			<entity class="Position" name="市场及大客户部专责">
+				<entity class="Person" name="钱二" sex="男" />
+			</entity>
+			<entity class="Position" name="市场及大客户部主任">
+				<entity class="Person" name="孙三" sex="男" />
+			</entity>
+		</entity>
+		<entity class="Department" name="营销部">
+			<entity class="Position" name="营销部专责">
+				<entity class="Person" name="李四" sex="男" />
+			</entity>
+			<entity class="Position" name="营销部主管主任">
+				<entity class="Person" name="周五" sex="男" />
+			</entity>
+			<entity class="Position" name="公司分管营销部副总经理">
+				<entity class="Person" name="吴六" sex="男" />
+			</entity>
+		</entity>
+		<entity class="Department" name="财务部">
+			<entity class="Position" name="财务代表">
+				<entity class="Person" name="郑七" sex="男" />
+			</entity>
+		</entity>
+
+	</entity>
+
+	<!--<entity class="Role" name="客户代表" call="roleService.addRole" /> <entity 
+		class="Role" name="市场及大客户部专责" call="roleService.addRole" /> <entity class="Role" 
+		name="市场及大客户部主任" call="roleService.addRole" /> <entity class="Role" name="营销部专责" 
+		call="roleService.addRole" /> <entity class="Role" name="营销部主管主任" call="roleService.addRole" 
+		/> <entity class="Role" name="公司分管营销部副总经理" call="roleService.addRole" /> 
+		<entity class="Role" name="财务代表" call="roleService.addRole" /> -->
+
+	<entity class="Role" name="部门领导" call="roleService.addRole" />
+
+	<!-- <entity class="Role" name="部门领导" call="roleService.addRole" /> <entity 
+		class="Role" name="档案管理员" call="roleService.addRole" /> <entity class="Role" 
+		name="临时工" call="roleService.addRole" /> -->
+
+	<entity class="Menu" name="个人办公" sn="personal" orderNumber="1"
+		display="true" call="menuService.addMenu">
+
+		<entity class="Menu" name="消息管理" orderNumber="17" display="true">
+			<entity class="Menu" name="发送消息" href="person/message!addInput.action"
+				orderNumber="171" display="true" />
+			<entity class="Menu" name="未读消息" href="person/message.action"
+				orderNumber="172" display="true" />
+			<entity class="Menu" name="已接收消息" href="person/message.action"
+				orderNumber="173" display="true" />
+			<entity class="Menu" name="已发送消息" href="person/message.action"
+				orderNumber="174" display="true" />
+			<entity class="Menu" name="已删除消息" href="person/message.action"
+				orderNumber="175" display="true" />
+		</entity>
+		<entity class="Menu" name="个人设置" orderNumber="21" display="true">
+			<entity class="Menu" name="个人信息" href="system/person!updateInput2.action"
+				orderNumber="211" display="true" />
+			<entity class="Menu" name="修改密码" href="system/user!updatePwdInput.action"
+				orderNumber="212" display="true" />
+		</entity>
+	</entity>
+	<entity class="Menu" name="工作流" sn="workflow" orderNumber="2"
+		display="true" call="menuService.addMenu">
+		<entity class="Menu" name="流程定义" orderNumber="22" display="true">
+			<entity class="Menu" name="创建新的流程定义" href="system/workflow!addInput.action"
+				orderNumber="221" display="true" />
+			<entity class="Menu" name="查询已有流程定义" href="system/workflow.action"
+				orderNumber="222" display="true" />
+		</entity>
+		<entity class="Menu" name="流程节点文件管理" orderNumber="23" display="true">
+			<entity class="Menu" name="查询已有流程节点" href="system/activity.action"
+				orderNumber="232" display="true" />
+		</entity>
+		<entity class="Menu" name="任务管理" orderNumber="24" display="true">
+			<entity class="Menu" name="我的工程" orderNumber="242"
+				href="person/project.action" display="true" />
+			<entity class="Menu" name="待办任务" orderNumber="243"
+				href="person/approving.action" display="true" />
+			<entity class="Menu" name="已办任务" orderNumber="244"
+				href="person/approved.action" display="true" />
+		</entity>
+		<entity class="Menu" name="流程节点财务信息管理" orderNumber="25"
+			display="true">
+			<entity class="Menu" name="查询已有流程节点" href="system/activityPayment.action"
+				orderNumber="251" display="true" />
+		</entity>
+	</entity>
+
+	<entity class="Menu" name="系统管理" sn="system" orderNumber="4"
+		display="true" call="menuService.addMenu">
+		<entity class="Menu" name="组织机构管理" orderNumber="41" display="true">
+			<entity class="Menu" name="单位/公司信息设置" href="system/company!saveInput.action"
+				orderNumber="411" display="true" />
+			<entity class="Menu" name="部门/岗位设置" href="system/party.action"
+				orderNumber="412" display="true" />
+			<entity class="Menu" name="人员管理" href="system/person.action"
+				orderNumber="413" display="true" />
+			<entity class="Menu" name="七库管理" href="system/database.action"
+				orderNumber="414" display="true" />
+			<entity class="Menu" name="工程管理" href="system/project.action"
+				orderNumber="415" display="true" />
+			<entity class="Menu" name="Excel属性管理" href="system/sequence.action"
+				orderNumber="416" display="true" />
+			<entity class="Menu" name="ID管理" orderNumber="417" display="true">
+				<entity class="Menu" name="ID规则管理" href="system/rule.action"
+					orderNumber="4171" display="true" />
+				<entity class="Menu" name="ID表管理" href="system/idtable.action"
+					orderNumber="4172" display="true" />
+			</entity>
+		</entity>
+
+		<entity class="Menu" name="权限管理" orderNumber="42" display="true">
+			<entity class="Menu" name="用户管理" href="system/user.action"
+				orderNumber="421" display="true" />
+			<entity class="Menu" name="角色管理" href="system/role.action"
+				orderNumber="422" display="true" />
+			<entity class="Menu" name="菜单管理" href="system/menu.action"
+				orderNumber="423" display="true" />
+			<entity class="Menu" name="资源管理" href="system/resource.action"
+				orderNumber="424" display="true" />
+			<entity class="Menu" name="用户授权" href="system/acl!userAuthIndex.action"
+				orderNumber="425" display="true" />
+			<entity class="Menu" name="角色授权" href="system/acl!roleAuthIndex.action"
+				orderNumber="426" display="true" />
+			<entity class="Menu" name="部门/岗位授权" href="system/acl!partyAuthIndex.action"
+				orderNumber="427" display="true" />
+		</entity>
+	</entity>
+
+	<entity class="ActionResource" name="权限操作" orderNumber="60"
+		sn="security" call="resourceService.addActionResource">
+	</entity>
+</inits>

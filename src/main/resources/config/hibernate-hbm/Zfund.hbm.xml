@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.zhuqi.oa.model.Zfund" table="t_zfund">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="fund_name" />
+		<property name="fn_use" />
+		<property name="fund_time" />
+		<property name="ft_use" />
+		<property name="fund_oper" />
+		<property name="fo_use" />
+		<many-to-one name="activity" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.zhuqi.oa.model.ZActivity" table="t_zactivity">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name" />
+		<property name="x" />
+		<property name="y" />
+		<property name="width" />
+		<property name="height" />
+		<property name="owner" />
+
+		<many-to-one name="workflow" />
+		<set name="files" inverse="true" lazy="extra" cascade="delete">
+			<key column="activity" />
+			<one-to-many class="cn.zhuqi.oa.model.Zfile" />
+		</set>
+	</class>
+</hibernate-mapping>

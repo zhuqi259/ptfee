@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.zhuqi.oa.model.Menu" table="t_menu">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="name"/>
+		<property name="href"/>
+		<property name="orderNumber"/>
+		<property name="sn"/>
+		<property name="display"/>
+		<many-to-one name="parent" column="pid"/>
+		<set name="children" lazy="extra" inverse="true" order-by="orderNumber">
+			<key column="pid"/>
+			<one-to-many class="cn.zhuqi.oa.model.Menu"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.zhuqi.oa.model.User" table="t_user">
+		<id name="id">
+			<generator class="foreign">
+				<param name="property">person</param>
+			</generator>
+		</id>
+		<property name="username" unique="true" />
+		<property name="password" />
+		<one-to-one name="person" constrained="true" />
+		<set name="usersRoles" inverse="true" lazy="extra" cascade="delete">
+			<key column="userId" />
+			<one-to-many class="cn.zhuqi.oa.model.UsersRoles" />
+		</set>
+
+		<set name="fMessages" inverse="true" lazy="extra" cascade="delete">
+			<key column="ufr" />
+			<one-to-many class="cn.zhuqi.oa.model.Message" />
+		</set>
+
+		<set name="tMessages" inverse="true" lazy="extra" cascade="delete">
+			<key column="uto" />
+			<one-to-many class="cn.zhuqi.oa.model.Message" />
+		</set>
+	</class>
+</hibernate-mapping>

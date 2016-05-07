@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="t_formfield" name="cn.zhuqi.oa.model.FormField">
+    <id name="id">
+      <generator class="native"/>
+    </id>
+    <property name="fieldLabel"/>
+    <property name="fieldName"/>
+    <many-to-one name="fieldInput"/>
+    <many-to-one name="fieldType"/>
+    <list table="T_FieldItem" name="items">
+      <key column="fieldId"/>
+      <list-index column="itemIndex"/>
+      <composite-element class="cn.zhuqi.oa.model.FieldItem">
+        <property name="label"/>
+        <property name="value"/>
+      </composite-element>
+    </list>
+    <many-to-one column="flowFormId" name="flowForm"/>
+  </class>
+</hibernate-mapping>

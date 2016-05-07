@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.zhuqi.oa.model.ACL" table="t_acl">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="principalType"/>
+		<property name="principalId"/>
+		<property name="resourceType"/>
+		<property name="resourceId"/>
+		<property name="aclState"/>
+		<property name="aclTriState"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.zhuqi.oa.model.Message" table="t_message">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="title" />
+		<property name="content" />
+		<property name="time" />
+		<property name="rtime" />
+		<many-to-one name="ufr" />
+		<many-to-one name="uto" />
+		<property name="readed" not-null="true" />
+		<property name="fused" not-null="true" />
+		<property name="tused" not-null="true" />
+	</class>
+</hibernate-mapping>

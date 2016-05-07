@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process key="配套费项目演示版本" name="配套费项目演示版本" xmlns="http://jbpm.org/4.4/jpdl">
+	<task assignee="#{owner}" g="74,7,122,70" name="工程受理">
+		<transition to="市场及大客户服务部专责审核"/>
+	</task>
+	<task assignee="市场及大客户服务部专责" g="231,6,187,70" name="市场及大客户服务部专责审核">
+		<transition to="市场及大客户服务部主任审核"/>
+	</task>
+	<task assignee="市场及大客户服务部主任" g="434,9,175,70" name="市场及大客户服务部主任审核">
+		<transition to="营销部专责审核"/>
+	</task>
+	<task assignee="营销部专责" g="629,6,115,70" name="营销部专责审核">
+		<transition to="营销部主管主任审核"/>
+	</task>
+	<task assignee="营销部主管主任" g="760,9,140,70" name="营销部主管主任审核">
+		<transition to="公司分管营销部副总经理审核"/>
+	</task>
+	<task assignee="公司分管营销部副总经理" g="738,93,183,70" name="公司分管营销部副总经理审核">
+		<transition to="分配工程编号"/>
+	</task>
+	<task assignee="市场及大客户服务部专责" g="503,96,203,70" name="分配工程编号">
+		<transition to="签订协议"/>
+	</task>
+	<task assignee="#{owner}" g="308,97,138,70" name="签订协议">
+		<transition to="制定临时和正式供电供电方案"/>
+	</task>
+	<task assignee="营销部专责" g="76,96,196,70" name="制定临时和正式供电供电方案">
+		<transition g="46,125;47,592:" to="向设计院移交正式用电可研相关材料"/>
+		<transition g="46,126;46,167;46,216:" to="临时用电工程立项申请"/>
+		<transition g="47,125;47,592;49,1027:" to="收取20%配套费"/>
+	</task>
+	<task assignee="#{owner}" g="76,181,138,70" name="临时用电工程立项申请">
+		<transition to="向省公司上报临时用电工程立项申请"/>
+	</task>
+	<task assignee="营销部专责" g="230,181,212,70" name="向省公司上报临时用电工程立项申请">
+		<transition to="接收省公司批复临时用电工程立项申请"/>
+	</task>
+	<task assignee="营销部专责" g="450,181,233,70" name="接收省公司批复临时用电工程立项申请">
+		<transition to="组织临时用电工程设计|监理竞争性谈判"/>
+	</task>
+	<task assignee="市场及大客户服务部专责" g="694,181,235,70" name="组织临时用电工程设计|监理竞争性谈判">
+		<transition to="委托临时用电工程设计监理工作"/>
+	</task>
+	<task assignee="#{owner}" g="708,288,205,70" name="委托临时用电工程设计监理工作">
+		<transition to="组织临时用电施工竞争性谈判"/>
+	</task>
+	<task assignee="市场及大客户服务部专责" g="469,286,177,77" name="组织临时用电施工竞争性谈判">
+		<transition to="签订临时用电施工合同"/>
+	</task>
+	<task assignee="#{owner}" g="258,283,157,78" name="签订临时用电施工合同">
+		<transition to="临时用电工程验收"/>
+	</task>
+	<task assignee="#{owner}" g="75,289,138,70" name="临时用电工程验收">
+		<transition to="临时用电工程结算"/>
+	</task>
+	<task assignee="#{owner}" g="79,390,131,70" name="临时用电工程结算">
+		<transition to="临时用电监理报告归档"/>
+	</task>
+	<task assignee="#{owner}" g="255,391,162,70" name="临时用电监理报告归档">
+	</task>
+	<task assignee="#{owner}" g="72,554,222,70" name="向设计院移交正式用电可研相关材料">
+		<transition to="正式用电可研文件编制完成申请审核"/>
+	</task>
+	<task assignee="#{owner}" g="329,552,238,70" name="正式用电可研文件编制完成申请审核">
+		<transition to="组织可研文件审核"/>
+	</task>
+	<task assignee="营销部专责" g="608,550,156,70" name="组织可研文件审核">
+		<transition to="正式用电工程立项"/>
+	</task>
+	<task assignee="营销部专责" g="798,546,139,70" name="正式用电工程立项">
+		<transition to="批复正式用电工程立项"/>
+	</task>
+	<task assignee="营销部专责" g="791,648,149,70" name="批复正式用电工程立项">
+		<transition to="组织正式用电工程设计|监理招标"/>
+	</task>
+	<task assignee="市场及大客户服务部专责" g="591,646,189,70" name="组织正式用电工程设计|监理招标">
+		<transition to="正式用电工程设计"/>
+	</task>
+	<task assignee="#{owner}" g="449,646,128,70" name="正式用电工程设计">
+		<transition to="组织正式用电工程施工招标"/>
+	</task>
+	<task assignee="市场及大客户服务部专责" g="256,645,166,70" name="组织正式用电工程施工招标">
+		<transition to="签订正式用电工程施工合同"/>
+	</task>
+	<task assignee="#{owner}" g="78,646,163,70" name="签订正式用电工程施工合同">
+		<transition to="正式用电30%进度"/>
+	</task>
+	<task assignee="#{owner}" g="610,748,126,70" name="正式用电工程验收">
+		<transition to="正式用电工程结算"/>
+	</task>
+	<task assignee="#{owner}" g="769,750,126,70" name="正式用电工程结算">
+	</task>
+	<task assignee="财务代表" g="82,995,160,65" name="收取20%配套费">
+		<transition g="161,952:" to="财务临时工程立项"/>
+		<transition g="161,1091:" to="财务正式工程立项"/>
+	</task>
+	<task assignee="营销部专责" g="197,917,118,70" name="财务临时工程立项">
+		<transition to="办理临时用电工程设计|监理借款"/>
+	</task>
+	<task assignee="营销部专责" g="201,1057,117,70" name="财务正式工程立项">
+		<transition to="收取50%配套费"/>
+	</task>
+	<task assignee="#{owner}" g="334,916,193,70" name="办理临时用电工程设计|监理借款">
+		<transition to="办理临时用电工程施工95%借款"/>
+	</task>
+	<task assignee="#{owner}" g="540,915,187,70" name="办理临时用电工程施工95%借款">
+		<transition to="办理临时用电工程5%质保金"/>
+	</task>
+	<task assignee="#{owner}" g="746,916,168,70" name="办理临时用电工程5%质保金">
+	</task>
+	<task assignee="财务代表" g="342,1057,128,70" name="收取50%配套费">
+		<transition to="确认正式用电施工中标合同金额"/>
+	</task>
+	<task assignee="#{owner}" g="498,1059,206,70" name="确认正式用电施工中标合同金额">
+		<transition to="第一次借款"/>
+	</task>
+	<task assignee="#{owner}" g="87,741,146,70" name="正式用电30%进度">
+		<transition to="正式用电60%进度"/>
+	</task>
+	<task assignee="#{owner}" g="259,744,155,70" name="正式用电60%进度">
+		<transition to="正式用电100%进度"/>
+	</task>
+	<task assignee="#{owner}" g="447,746,132,70" name="正式用电100%进度">
+		<transition to="正式用电工程验收"/>
+	</task>
+	<task assignee="#{owner}" g="756,1060,161,70" name="第一次借款">
+		<transition to="第二次借款"/>
+	</task>
+	<task assignee="#{owner}" g="760,1153,160,70" name="第二次借款">
+		<transition to="第三次借款"/>
+	</task>
+	<task assignee="#{owner}" g="605,1151,142,70" name="第三次借款">
+		<transition to="收取30%配套费"/>
+	</task>
+	<task assignee="财务代表" g="485,1148,107,70" name="收取30%配套费">
+		<transition to="财务结算"/>
+	</task>
+	<task assignee="财务代表" g="367,1150,94,70" name="财务结算">
+		<transition to="正式用电其他费用借款"/>
+		<transition to="第四次借款"/>
+	</task>
+	<task assignee="#{owner}" g="200,1150,138,70" name="第四次借款">
+		<transition to="正式用电工程设计|监理借款"/>
+	</task>
+	<task assignee="#{owner}" g="18,1149,168,70" name="正式用电工程设计|监理借款">
+		<transition to="正式用电工程施工质保金"/>
+	</task>
+	<task assignee="#{owner}" g="6,1241,185,70" name="正式用电工程施工质保金">
+	</task>
+	<task assignee="#{owner}" g="332,1242,168,70" name="正式用电其他费用借款">
+	</task>
+	<start g="3,19,48,48" name="start1">
+		<transition to="工程受理"/>
+	</start>
+</process>

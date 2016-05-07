@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.configuration.xml.reload" value="true"/>
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+    <!-- struts2 Action 使用! Dynamic Method Invocation [DMI] -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <constant name="struts.custom.i18n.resources" value="i18n/MessageResources"/>
+    <!-- 500M struts2设置的问题 -->
+    <constant name="struts.multipart.maxSize" value="524288000"/>
+    <constant name="struts.multipart.saveDir" value="java.io.tmpdir"/>
+    <constant name="struts.action.extension" value=",action,do"/>
+
+    <!-- 指定Web应用的默认编码集,相当于调用HttpServletRequest的setCharacterEncoding方法 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <!-- 当struts的配置文件修改后,系统是否自动重新加载该文件,默认值为false(生产环境下使用),开发阶段最好打开 -->
+    <constant name="struts.configuration.xml.reload" value="false"/>
+    <!-- 开发模式下使用,这样可以打印出更详细的错误信息 -->
+    <constant name="struts.devMode" value="false"/>
+
+    <package name="common" extends="struts-default" abstract="true">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+        <interceptors>
+            <interceptor name="pagerInterceptor"
+                         class="cn.zhuqi.oa.web.interceptor.PagerInterceptor"/>
+            <interceptor name="loginInterceptor"
+                         class="cn.zhuqi.oa.web.interceptor.LoginInterceptor"/>
+            <interceptor name="authInterceptor"
+                         class="cn.zhuqi.oa.web.interceptor.AuthInterceptor"/>
+            <interceptor name="paramsRemove"
+                         class="com.opensymphony.xwork2.interceptor.ParameterRemoverInterceptor"/>
+            <interceptor name="json"
+                         class="org.apache.struts2.json.JSONInterceptor"/>
+            <interceptor-stack name="oa-basic-stack">
+                <interceptor-ref name="exception">
+                    <param name="logEnabled">true</param>
+                    <param name="logCategory">cn.zhuqi</param>
+                </interceptor-ref>
+                <interceptor-ref name="authInterceptor"/>
+                <interceptor-ref name="pagerInterceptor"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven">
+                    <param name="refreshModelBeforeResult">true</param>
+                </interceptor-ref>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="json"/>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="multiselect"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                <interceptor-ref name="params">
+                    <param name="excludeParams">
+                        (.*\.|^|.*|\[('|"))(c|C)lass(\.|('|")]|\[).*,^dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,^parameters\..*,^action:.*,^method:.*
+                    </param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="debugging"/>
+                <interceptor-ref name="deprecation"/>
+            </interceptor-stack>
+            <interceptor-stack name="oa-need-login-stack">
+                <interceptor-ref name="loginInterceptor"/>
+                <interceptor-ref name="oa-basic-stack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="oa-need-login-stack"/>
+        <global-results>
+            <result name="error">/common/error.jsp</result>
+            <result name="login" type="redirect">/index.jsp</result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping result="error" exception="java.lang.Exception"/>
+        </global-exception-mappings>
+    </package>
+
+</struts>

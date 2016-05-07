@@ -1,0 +1,36 @@
+A.close:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.close:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.close:active {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.close:hover {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.inputFrm {
+	BORDER-RIGHT: #d2d2d2 1px solid; BORDER-TOP: #d2d2d2 1px solid; FONT-SIZE: 10pt; BORDER-LEFT: #d2d2d2 1px solid; WIDTH: 100%; BORDER-BOTTOM: #d2d2d2 1px solid; HEIGHT: auto
+}
+.selectFrm {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-BOTTOM-WIDTH: 1px; WIDTH: 80%; BORDER-RIGHT-WIDTH: 1px; FONT-COLOR: #FFFFFF
+}
+.PageBody {
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#B2DBFE,endColorStr=#FFFFFF); BACKGROUND-COLOR: #b2dbfe
+}
+.UpTr {
+	BACKGROUND: #ebebeb
+}
+.DownTr {
+	BACKGROUND: #ffffff
+}
+.LoginLine {
+	BACKGROUND: #e4e4e4
+}
+.ItemTitleFont {
+	FONT-SIZE: 9pt; COLOR: #8d3131; FONT-FAMILY: 宋体
+}
+.VersionTitle {
+	PADDING-RIGHT: 8px; FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: 
+}

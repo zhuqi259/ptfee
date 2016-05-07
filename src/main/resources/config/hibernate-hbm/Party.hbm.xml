@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.zhuqi.oa.model.Party" table="t_party" discriminator-value="X">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<discriminator column="party_type" type="char"></discriminator>
+		<property name="name"/>
+		<property name="description"/>
+		<many-to-one name="parent" column="pid"/>
+		<set name="children" lazy="extra" inverse="true" order-by="id">
+			<key column="pid"/>
+			<one-to-many class="cn.zhuqi.oa.model.Party"/>
+			<filter name="no_contain_person" condition="party_type != 'P'"></filter>
+		</set>
+		<subclass name="cn.zhuqi.oa.model.Company" discriminator-value="C">
+			<property name="tel"/>
+			<property name="fax"/>
+			<property name="address"/>
+			<property name="postcode"/>
+			<property name="site"/>
+			<property name="email"/>
+			<property name="industry"/>
+		</subclass>
+		<subclass name="cn.zhuqi.oa.model.Department" discriminator-value="D">
+			<property name="tel"/>
+			<property name="snumber"/>
+		</subclass>
+		<subclass name="cn.zhuqi.oa.model.Person" discriminator-value="P">
+			<property name="snumber"/>
+			<property name="sex"/>
+			<property name="phone"/>
+			<property name="duty"/>
+			<property name="address"/>
+			<property name="qq"/>
+			<property name="msn"/>
+			<property name="email"/>
+			<one-to-one name="user"/>
+		</subclass>
+		<subclass name="cn.zhuqi.oa.model.Position" discriminator-value="S">
+		</subclass>
+	</class>
+	<filter-def name="no_contain_person"></filter-def>
+</hibernate-mapping>

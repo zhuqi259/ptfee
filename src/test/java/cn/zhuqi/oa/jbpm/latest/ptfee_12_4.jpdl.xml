@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process key="配套费项目" name="配套费项目" xmlns="http://jbpm.org/4.4/jpdl">
+
+	<start g="12,21,48,48" name="start1">
+      <transition to="工程受理"/>
+	</start>
+	<task assignee="#{owner}" g="76,21,92,42" name="工程受理">
+      <transition to="市场及大客户服务部专责审核"/>
+	</task>
+	<task assignee="市场及大客户服务部专责" g="193,22,165,44" name="市场及大客户服务部专责审核">
+      <transition g="-24,-15" name="审核通过" to="市场及大客户服务部主任审核"/>
+      <transition g="176,82:-43,-2" name="驳回" to="工程受理"/>
+	</task>
+	<end g="394,1231,48,48" name="end1"/>
+   <task assignee="市场及大客户服务部主任" g="407,25,162,41" name="市场及大客户服务部主任审核">
+      <transition g="-24,-19" name="审核通过" to="营销部专责审核"/>
+      <transition g="389,82:-45,-2" name="驳回" to="市场及大客户服务部专责审核"/>
+   </task>
+   <task assignee="营销部专责" g="607,24,136,38" name="营销部专责审核">
+      <transition g="-25,-23" name="审核通过" to="营销部主管主任审核"/>
+      <transition g="596,75:-41,3" name="驳回" to="市场及大客户服务部主任审核"/>
+   </task>
+   <task assignee="营销部主管主任" g="774,20,145,37" name="营销部主管主任审核">
+      <transition g="15,-3" name="审核通过" to="公司分管营销部副总经理审核"/>
+      <transition g="769,73:-50,-5" name="驳回" to="营销部专责审核"/>
+   </task>
+   <task assignee="公司分管营销部副总经理" g="746,114,176,44" name="公司分管营销部副总经理审核">
+      <transition g="-20,-26" name="审核通过" to="分配工程编号"/>
+      <transition g="818,79:-28,1" name="驳回" to="营销部主管主任审核"/>
+   </task>
+   <task assignee="市场及大客户服务部专责" g="529,109,195,40" name="分配工程编号">
+      <transition to="签订协议"/>
+   </task>
+   <task assignee="#{owner}" g="401,112,111,39" name="签订协议">
+      <transition to="fork1"/>
+   </task>
+   <task assignee="营销部专责" g="88,110,178,39" name="制定临时和正式供电供电方案">
+      <transition to="fork2"/>
+   </task>
+   <task assignee="#{owner}" g="14,237,188,37" name="临时用电工程立项申请">
+      <transition to="fork3"/>
+   </task>
+   <task assignee="营销部专责" g="4,368,227,41" name="向省公司上报临时用电工程立项申请">
+      <transition to="接收省公司批复临时用电工程立项申请"/>
+   </task>
+   <task assignee="营销部专责" g="36,445,166,37" name="接收省公司批复临时用电工程立项申请">
+      <transition to="组织临时用电工程设计|监理竞争性谈判"/>
+   </task>
+   <task assignee="市场及大客户服务部专责" g="24,507,182,36" name="组织临时用电工程设计|监理竞争性谈判">
+      <transition to="委托临时用电工程设计监理工作"/>
+   </task>
+   <task assignee="#{owner}" g="57,572,117,42" name="委托临时用电工程设计监理工作">
+      <transition to="组织临时用电施工竞争性谈判"/>
+   </task>
+   <task assignee="市场及大客户服务部专责" g="31,641,155,41" name="组织临时用电施工竞争性谈判">
+      <transition to="签订临时用电施工合同"/>
+   </task>
+   <task assignee="#{owner}" g="8,703,148,41" name="签订临时用电施工合同">
+      <transition to="fork5"/>
+   </task>
+   <task assignee="#{owner}" g="33,797,119,39" name="临时用电工程验收">
+      <transition to="临时用电工程结算"/>
+   </task>
+   <task assignee="#{owner}" g="99,894,127,37" name="临时用电工程结算">
+      <transition to="fork6"/>
+   </task>
+   <task assignee="#{owner}" g="203,948,126,35" name="临时用电监理报告归档">
+      <transition to="join4"/>
+   </task>
+   <task assignee="#{owner}" g="385,167,160,38" name="向设计院移交正式用电可研相关材料">
+      <transition to="正式用电可研文件编制完成申请审核"/>
+   </task>
+   <task assignee="#{owner}" g="577,167,133,36" name="正式用电可研文件编制完成申请审核">
+      <transition to="组织可研文件审核"/>
+   </task>
+   <task assignee="营销部专责" g="733,173,186,41" name="组织可研文件审核">
+      <transition to="正式用电工程立项"/>
+   </task>
+   <task assignee="营销部专责" g="755,257,124,37" name="正式用电工程立项">
+      <transition to="fork7"/>
+   </task>
+   <task assignee="营销部专责" g="755,328,149,39" name="批复正式用电工程立项">
+      <transition to="组织正式用电工程设计|监理招标"/>
+   </task>
+   <task assignee="市场及大客户服务部专责" g="752,405,151,36" name="组织正式用电工程设计|监理招标">
+      <transition to="正式用电工程设计"/>
+   </task>
+   <task assignee="#{owner}" g="770,465,128,39" name="正式用电工程设计">
+      <transition to="组织正式用电工程施工招标"/>
+   </task>
+   <task assignee="市场及大客户服务部专责" g="770,525,118,42" name="组织正式用电工程施工招标">
+      <transition to="签订正式用电工程施工合同"/>
+   </task>
+   <task assignee="#{owner}" g="771,579,125,41" name="签订正式用电工程施工合同">
+      <transition to="fork8"/>
+   </task>
+   <task assignee="#{owner}" g="781,875,126,39" name="正式用电工程验收">
+      <transition to="fork12"/>
+   </task>
+   <task assignee="#{owner}" g="789,964,126,37" name="正式用电工程结算">
+      <transition to="fork13"/>
+   </task>
+   <fork g="313,106,30,35" name="fork1">
+      <transition g="348,184:" to="收取20%配套费"/>
+      <transition to="制定临时和正式供电供电方案"/>
+   </fork>
+   <task assignee="财务代表" g="260,232,113,41" name="收取20%配套费">
+      <transition to="join1"/>
+   </task>
+   <fork g="229,161,41,37" name="fork2">
+      <transition to="临时用电工程立项申请"/>
+      <transition to="向设计院移交正式用电可研相关材料"/>
+   </fork>
+   <fork g="111,298,40,28" name="fork3">
+      <transition to="向省公司上报临时用电工程立项申请"/>
+      <transition to="join1"/>
+   </fork>
+   <task assignee="营销部专责" g="227,424,125,37" name="财务临时工程立项">
+      <transition to="fork4"/>
+   </task>
+   <join g="241,291,41,39" name="join1">
+      <transition to="财务临时工程立项"/>
+   </join>
+   <fork g="363,453,31,37" name="fork4">
+      <transition to="财务正式工程立项"/>
+      <transition to="join2"/>
+   </fork>
+   <task assignee="营销部专责" g="352,310,126,38" name="财务正式工程立项">
+      <transition to="join6"/>
+   </task>
+   <task assignee="#{owner}" g="269,633,183,37" name="办理临时用电工程设计|监理借款">
+      <transition to="join3"/>
+   </task>
+   <fork g="203,733,41,40" name="fork5">
+      <transition to="临时用电工程验收"/>
+      <transition to="join2"/>
+   </fork>
+   <join g="251,535,36,33" name="join2">
+      <transition to="办理临时用电工程设计|监理借款"/>
+   </join>
+   <task assignee="#{owner}" g="363,859,132,43" name="办理临时用电工程施工95%借款">
+      <transition to="join4"/>
+   </task>
+   <task assignee="#{owner}" g="325,1122,137,40" name="办理临时用电工程5%质保金">
+      <transition to="join5"/>
+   </task>
+   <join g="370,704,54,34" name="join3">
+      <transition to="办理临时用电工程施工95%借款"/>
+   </join>
+   <fork g="277,799,38,41" name="fork6">
+      <transition to="join3"/>
+      <transition to="临时用电监理报告归档"/>
+   </fork>
+   <join g="414,975,42,34" name="join4">
+      <transition to="办理临时用电工程5%质保金"/>
+   </join>
+   <join g="530,1159,41,40" name="join5">
+      <transition to="end1"/>
+   </join>
+   <task assignee="财务代表" g="493,402,113,40" name="收取50%配套费">
+      <transition to="join7"/>
+   </task>
+   <join g="534,332,39,27" name="join6">
+      <transition to="收取50%配套费"/>
+   </join>
+   <fork g="635,297,25,21" name="fork7">
+      <transition to="批复正式用电工程立项"/>
+      <transition to="join6"/>
+   </fork>
+   <task assignee="#{owner}" g="383,562,191,42" name="确认正式用电施工中标合同金额">
+      <transition to="join8"/>
+   </task>
+   <join g="529,490,28,27" name="join7">
+      <transition to="确认正式用电施工中标合同金额"/>
+   </join>
+   <fork g="647,559,22,23" name="fork8">
+      <transition to="join7"/>
+      <transition to="正式用电30%进度"/>
+   </fork>
+   <task assignee="#{owner}" g="773,649,120,41" name="正式用电30%进度">
+      <transition to="fork9"/>
+   </task>
+   <task assignee="#{owner}" g="772,716,119,38" name="正式用电60%进度">
+      <transition to="fork10"/>
+   </task>
+   <task assignee="#{owner}" g="783,791,120,42" name="正式用电100%进度">
+      <transition to="fork11"/>
+   </task>
+   <fork g="686,647,35,37" name="fork9">
+      <transition to="join8"/>
+      <transition to="正式用电60%进度"/>
+   </fork>
+   <task assignee="#{owner}" g="474,697,103,37" name="第一次借款">
+      <transition to="join9"/>
+   </task>
+   <task assignee="#{owner}" g="467,800,103,39" name="第二次借款">
+      <transition to="join10"/>
+   </task>
+   <task assignee="#{owner}" g="492,925,101,34" name="第三次借款">
+      <transition to="join11"/>
+   </task>
+   <join g="567,633,44,38" name="join8">
+      <transition to="第一次借款"/>
+   </join>
+   <join g="602,747,30,35" name="join9">
+      <transition to="第二次借款"/>
+   </join>
+   <fork g="699,740,35,32" name="fork10">
+      <transition to="join9"/>
+      <transition to="正式用电100%进度"/>
+   </fork>
+   <join g="622,875,35,34" name="join10">
+      <transition to="第三次借款"/>
+   </join>
+   <fork g="697,828,46,36" name="fork11">
+      <transition to="join10"/>
+      <transition to="正式用电工程验收"/>
+   </fork>
+   <task assignee="财务代表" g="471,1035,96,39" name="收取30%配套费">
+      <transition to="join12"/>
+   </task>
+   <task assignee="财务代表" g="507,1109,81,36" name="财务结算">
+      <transition to="fork14"/>
+   </task>
+   <task assignee="#{owner}" g="688,1082,118,41" name="第四次借款">
+      <transition to="正式用电工程设计|监理借款"/>
+   </task>
+   <task assignee="#{owner}" g="722,1142,126,38" name="正式用电工程设计|监理借款">
+      <transition to="join13"/>
+   </task>
+   <task assignee="#{owner}" g="510,1234,92,37" name="正式用电工程施工质保金">
+      <transition to="join5"/>
+   </task>
+   <join g="600,981,37,30" name="join11">
+      <transition to="收取30%配套费"/>
+   </join>
+   <fork g="725,913,53,32" name="fork12">
+      <transition to="join11"/>
+      <transition to="正式用电工程结算"/>
+   </fork>
+   <fork g="738,1017,41,43" name="fork13">
+      <transition to="join12"/>
+      <transition g="890,1099:" to="join13"/>
+   </fork>
+   <join g="613,1062,36,31" name="join12">
+      <transition to="财务结算"/>
+   </join>
+   <task assignee="#{owner}" g="626,1196,137,37" name="正式用电其他费用借款">
+      <transition to="join5"/>
+   </task>
+   <fork g="653,1138,26,30" name="fork14">
+      <transition to="正式用电其他费用借款"/>
+      <transition to="第四次借款"/>
+   </fork>
+   <join g="837,1226,34,42" name="join13">
+      <transition to="正式用电工程施工质保金"/>
+   </join>
+</process>

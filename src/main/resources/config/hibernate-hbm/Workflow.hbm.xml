@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="t_workflow" name="cn.zhuqi.oa.model.Workflow">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name" unique="true" />
+		<property name="processImage" length="99999999" type="binary" />
+		<set name="activities" inverse="true" lazy="extra" cascade="delete">
+			<key column="workflow" />
+			<one-to-many class="cn.zhuqi.oa.model.ZActivity" />
+		</set>
+	</class>
+</hibernate-mapping>

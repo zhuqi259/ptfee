@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.zhuqi.oa.model.ActionResource" table="t_resource">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="className"/>
+		<property name="name"/>
+		<property name="sn" unique="true"/>
+		<property name="parentSn"/>
+		<property name="orderNumber"/>
+		<map name="opers" table="t_resource_opers" order-by="operIndex">
+			<key column="resourceId"/>
+			<map-key type="string" column="operKey"></map-key>
+			<composite-element class="cn.zhuqi.oa.model.ActionMethodOper">
+				<property name="methodName"/>
+				<property name="operName"/>
+				<property name="operIndex"/>
+				<property name="operSn"/>
+			</composite-element>
+		</map>
+		<many-to-one name="parent" column="pid"/>
+		<set name="children" lazy="extra" inverse="true" order-by="orderNumber">
+			<key column="pid"/>
+			<one-to-many class="cn.zhuqi.oa.model.ActionResource"/>
+		</set>
+	</class>
+</hibernate-mapping>
