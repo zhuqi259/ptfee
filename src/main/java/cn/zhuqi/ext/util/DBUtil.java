@@ -16,7 +16,7 @@ import java.util.Map;
 
 /**
  * 
- * @author Administrator
+ * @author zhuqi259
  * 
  */
 public class DBUtil {
