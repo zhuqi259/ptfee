@@ -36,11 +36,11 @@ public class BaseAction {
 		}
 	}
 
-	public String getSSearch() {
+	public String getsSearch() {
 		return sSearch;
 	}
 
-	public void setSSearch(String search) throws UnsupportedEncodingException {
+	public void setsSearch(String search) throws UnsupportedEncodingException {
 		sSearch = new String(search.getBytes("ISO-8859-1"), "UTF-8");
 	}
 

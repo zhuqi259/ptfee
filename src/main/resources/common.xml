@@ -4,7 +4,6 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <constant name="struts.configuration.xml.reload" value="true"/>
     <constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
     <!-- struts2 Action 使用! Dynamic Method Invocation [DMI] -->
     <constant name="struts.enable.DynamicMethodInvocation" value="true"/>

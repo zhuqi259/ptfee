@@ -462,3 +462,9 @@ TaskInfo taskInfo = taskInfoService.getPAUTaskInfo(proId,
 -----------------------------
 修改完毕 
 =======2013、12、5 0:49
+
+
+-------
+http://blog.csdn.net/yunye114105/article/details/7364264
+Java Bean 属性命名规范问题 - 高版本struts2 get/set
+
